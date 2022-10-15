@@ -13,6 +13,19 @@ const GlobalStyles = createGlobalStyle`
     *::-webkit-scrollbar {
         appearance: none;
     }
+
+    button {
+        cursor: pointer;
+        outline: none;
+        border: none;
+    }
+    input {
+        outline: none;
+        border: none;
+    }
+    ol, ul {
+        list-style: none;
+    }
 `;
 
 export default GlobalStyles;

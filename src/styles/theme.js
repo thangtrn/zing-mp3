@@ -11,9 +11,16 @@ class Theme {
             color: "white",
             logo: `url('${logoDark}')`,
             thumbColor: "rgb(255 255 255 / 30%)",
+            primaryBg: "#4b1178",
+            alphaBg: "rgba(255, 255, 255, 0.1)",
             layoutBg: "#37075d",
             sibarBg: "#ffffff0d",
             headerBoxShadow: "#0000001a",
+            alphaColor: "rgba(255, 255, 255, 0.1)",
+            searchText: "#eee",
+            textSecondary: "#ffffff80",
+            textPlaceholder: "#dadada",
+            linkTextHover: "#fe63da",
         };
     }
 
