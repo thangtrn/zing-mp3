@@ -1,8 +1,9 @@
 import React from "react";
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
-import SearchBox from "./SearchBox";
+import SearchBox from "../../components/SearchBox";
 
 import styled from "styled-components";
+import { Actions } from "../../components";
 
 const Container = styled.header`
     width: 100%;
@@ -32,6 +33,9 @@ const Left = styled.div`
     display: flex;
     flex-grow: 1;
 `;
+
+const Right = styled.div``;
+
 const Btn = styled.button`
     display: flex;
     align-items: center;
@@ -64,6 +68,9 @@ const Header = ({ showBg }) => {
 
                     <SearchBox />
                 </Left>
+                <Right>
+                    <Actions />
+                </Right>
             </Box>
         </Container>
     );

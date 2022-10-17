@@ -1,17 +1,23 @@
-import React from "react";
+import React, { memo } from "react";
+import { Link } from "react-router-dom";
+import { IoSearchOutline } from "react-icons/io5";
+
 import styled from "styled-components";
-import { IoTrendingUpSharp } from "react-icons/io5";
 
 const SuggestItemStyled = styled.li`
-    display: flex;
-    align-items: center;
     border-radius: 4px;
-    padding: 8px 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     cursor: pointer;
     transition: all 0.2s ease;
+
+    .suggest-link {
+        display: flex;
+        align-items: center;
+        padding: 8px 10px;
+        width: 100%;
+    }
 
     &:hover {
         background-color: ${({ theme }) => theme.alphaBg};
@@ -34,20 +40,19 @@ const Text = styled.div`
     text-overflow: ellipsis;
 `;
 
-const SuggestItem = () => {
+const SuggestItem = ({
+    text,
+    link = "",
+    icon = <IoSearchOutline size={18} />,
+}) => {
     return (
         <SuggestItemStyled>
-            <Icon>
-                <IoTrendingUpSharp size={16} />
-            </Icon>
-            <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-                beatae ipsam id expedita cupiditate temporibus harum corporis
-                doloribus a aperiam quos, itaque necessitatibus nemo libero,
-                eveniet tempora rem, culpa facilis.
-            </Text>
+            <Link to={`/tim-kiem/tat-ca?q=${link}`} className="suggest-link">
+                <Icon>{icon}</Icon>
+                <Text>{text}</Text>
+            </Link>
         </SuggestItemStyled>
     );
 };
 
-export default SuggestItem;
+export default memo(SuggestItem);

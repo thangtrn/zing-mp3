@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
 
 import { IoSearchOutline, IoCloseOutline } from "react-icons/io5";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import SuggestList from "./SuggestList";
+import { zingApi } from "../axios";
+import { useDebounce } from "../hooks";
 
 const Form = styled.form`
     width: 100%;
@@ -61,18 +65,66 @@ const CloseBtn = styled(SearchBtn)`
     width: 40px;
     cursor: pointer;
 
-    &svg {
+    svg {
         color: ${({ theme }) => theme.textPlaceholder};
     }
+`;
+
+const Spin = keyframes`
+    100%{
+        transform: translateY(-50%) rotate(360deg);
+    }
+`;
+
+const LoadingStyled = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0);
+    animation: ${Spin} 1s infinite linear forwards;
 `;
 
 const SearchBox = () => {
     const [isFocus, setIsFocus] = useState(false);
     const [searchValue, setSearchValue] = useState("");
+    const [searchResult, setSearchResult] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const debounceValue = useDebounce(searchValue, 500);
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        navigate(`/tim-kiem/tat-ca?q=${searchValue}`);
+        setIsFocus(false);
     };
+
+    useEffect(() => {
+        if (!debounceValue.trim()) {
+            setSearchResult([]);
+            setLoading(false);
+            return;
+        }
+
+        const fetchSearchAll = async () => {
+            try {
+                setLoading(true);
+                const response = await zingApi.searchAll(debounceValue);
+                console.log(response.data);
+                setSearchResult(response.data);
+            } catch (error) {
+                console.log(error.msg);
+            }
+            setLoading(false);
+        };
+        fetchSearchAll();
+    }, [debounceValue]);
 
     return (
         <Form onSubmit={handleSubmit} isFocus={isFocus}>
@@ -80,6 +132,7 @@ const SearchBox = () => {
                 <SearchBtn>
                     <IoSearchOutline size={24} />
                 </SearchBtn>
+
                 <Input
                     type="text"
                     placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát..."
@@ -89,12 +142,26 @@ const SearchBox = () => {
                     onBlur={() => setIsFocus(false)}
                 />
                 {searchValue.length > 0 && (
-                    <CloseBtn onClick={() => setSearchValue("")}>
-                        <IoCloseOutline size={20} />
-                    </CloseBtn>
+                    <>
+                        {loading ? (
+                            <LoadingStyled>
+                                <AiOutlineLoading3Quarters size={18} />
+                            </LoadingStyled>
+                        ) : (
+                            <CloseBtn onClick={() => setSearchValue("")}>
+                                <IoCloseOutline size={20} />
+                            </CloseBtn>
+                        )}
+                    </>
                 )}
             </Container>
-            {isFocus && <SuggestList searchValue={searchValue} />}
+            {/* Suggest List  */}
+            {isFocus && (
+                <SuggestList
+                    searchValue={searchValue}
+                    searchData={searchResult}
+                />
+            )}
         </Form>
     );
 };

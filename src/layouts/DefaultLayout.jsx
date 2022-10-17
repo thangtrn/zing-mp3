@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { CustomScrollBar, Header, Sidebar, PlayingBar } from "../components";
+import { CustomScrollBar } from "../components";
+import { Header, Sidebar, PlayingBar } from "./components";
 import { Layout, Container } from "../styles";
 
 function DefaultLayout({ children }) {

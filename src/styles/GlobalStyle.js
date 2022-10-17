@@ -19,12 +19,21 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         border: none;
     }
-    input {
+    input, img {
         outline: none;
         border: none;
     }
     ol, ul {
         list-style: none;
+    }
+    a[href] {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .tippy-box {
+        font-size: 11px;
+        line-height: 1.3;
     }
 `;
 
