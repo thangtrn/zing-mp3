@@ -1,4 +1,5 @@
 import { Home, ZingChart, MyMusic } from "../pages";
+import { Navigate } from "react-router-dom";
 
 const routes = [
     {
@@ -10,8 +11,12 @@ const routes = [
         element: <ZingChart />,
     },
     {
-        path: "/",
+        path: "/mymusic",
         element: <MyMusic />,
+    },
+    {
+        path: "*",
+        element: <Navigate to="/" />,
     },
 ];
 

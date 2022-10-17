@@ -1,8 +1,9 @@
-import React from "react";
-import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
-import SearchBox from "../../components/SearchBox";
-
+import React, { memo, useState } from "react";
 import styled from "styled-components";
+
+import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
+
+import SearchBox from "../../components/SearchBox";
 import { Actions } from "../../components";
 
 const Container = styled.header`
@@ -43,21 +44,30 @@ const Btn = styled.button`
     background-color: transparent;
     outline: none;
     border: none;
+    font-weight: 400;
     padding: 1px 0;
     padding-right: 22px;
     color: ${({ theme }) => theme.color};
     cursor: pointer;
+    &:disabled {
+        opacity: 0.3;
+    }
 `;
 
 const Header = ({ showBg }) => {
+    const [{ prev, next }, setDisable] = useState({
+        prev: true,
+        next: true,
+    });
+
     return (
         <Container show={showBg}>
             <Box>
                 <Left>
-                    <Btn>
+                    <Btn disabled={prev}>
                         {<HiOutlineArrowLeft size={22} className="icon-left" />}
                     </Btn>
-                    <Btn>
+                    <Btn disabled={next}>
                         {
                             <HiOutlineArrowRight
                                 size={22}
@@ -76,4 +86,4 @@ const Header = ({ showBg }) => {
     );
 };
 
-export default Header;
+export default memo(Header);
