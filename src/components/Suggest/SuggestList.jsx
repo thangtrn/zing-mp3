@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { IoTrendingUpSharp } from "react-icons/io5";
 
 import SuggestItem from "./SuggestItem";
-import { suggestForYou } from "../constants";
+import { suggestForYou } from "../../constants";
 
 const SuggestContainer = styled.div`
     position: absolute;

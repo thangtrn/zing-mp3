@@ -37,15 +37,7 @@ function Sidebar() {
                     <Brand />
                 </Link>
             </BrandContainer>
-            <div>
-                <Link to="/zing-chart" tabIndex={-1}>
-                    a
-                </Link>
-                <br />
-                <Link to="/mymusic" tabIndex={-1}>
-                    a
-                </Link>
-            </div>
+            <div></div>
         </Container>
     );
 }

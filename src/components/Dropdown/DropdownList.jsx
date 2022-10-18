@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DropdowmItem from "./DropdownItem";
-import { footerData } from "../constants";
+import { footerData } from "../../constants";
 
 const MenuContainer = styled.div`
     width: 240px;

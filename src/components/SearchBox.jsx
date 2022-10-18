@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 
 import { IoSearchOutline, IoCloseOutline } from "react-icons/io5";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import SuggestList from "./SuggestList";
+import { SuggestList } from "./Suggest";
 import { zingApi } from "../axios";
 import { useDebounce } from "../hooks";
 

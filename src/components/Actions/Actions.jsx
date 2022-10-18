@@ -7,11 +7,10 @@ import { BiBlock } from "react-icons/bi";
 import { BsChevronRight, BsPlayCircle } from "react-icons/bs";
 import { MdOutlineHighQuality } from "react-icons/md";
 
-import { ThemeIcon } from "../assets/icons";
+import { ThemeIcon } from "../../assets/icons";
 import ActionItem from "./ActionItem";
-import DropdownList from "./DropdownList";
-import DropdowmItem from "./DropdownItem";
-import { useOutSide } from "../hooks";
+import { DropdownList, DropdownItem } from "../Dropdown";
+import { useOutSide } from "../../hooks";
 
 const Container = styled.div`
     display: flex;
@@ -21,6 +20,7 @@ const Container = styled.div`
         margin-right: 12px;
     }
 `;
+
 const Horizontal = styled.div`
     width: 100%;
     height: 1px;
@@ -32,6 +32,7 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    user-select: none;
 `;
 
 const Actions = () => {
@@ -57,12 +58,15 @@ const Actions = () => {
 
     return (
         <Container>
+            {/* Setting choose theme */}
             <ActionItem tippyContent="Chủ đề" icon={<ThemeIcon size={20} />} />
+            {/* Setting Nap dau */}
             <ActionItem
                 tippyContent="Nâng cấp VIP"
                 href="https://www.facebook.com/"
                 icon={<RiVipCrown2Line size={20} />}
             />
+            {/* Setting Upload */}
             <ActionItem tippyContent="Tải lên" icon={<FiUpload size={20} />} />
             {/* Setting section */}
             <ActionItem
@@ -73,21 +77,21 @@ const Actions = () => {
             >
                 {isOpenSetting && (
                     <DropdownList footer={true}>
-                        <DropdowmItem iconLeft={<BiBlock size={20} />}>
+                        <DropdownItem iconLeft={<BiBlock size={20} />}>
                             Danh sách chặn
-                        </DropdowmItem>
-                        <DropdowmItem
+                        </DropdownItem>
+                        <DropdownItem
                             iconLeft={<MdOutlineHighQuality size={20} />}
                             iconRight={<BsChevronRight size={18} />}
                         >
                             Chất lượng nhạc
-                        </DropdowmItem>
-                        <DropdowmItem
+                        </DropdownItem>
+                        <DropdownItem
                             iconLeft={<BsPlayCircle size={18} />}
                             iconRight={<BsChevronRight size={18} />}
                         >
                             Giao diện
-                        </DropdowmItem>
+                        </DropdownItem>
                     </DropdownList>
                 )}
             </ActionItem>
@@ -101,16 +105,16 @@ const Actions = () => {
             >
                 {isOpenProfile && (
                     <DropdownList>
-                        <DropdowmItem iconLeft={<RiVipCrownLine size={18} />}>
+                        <DropdownItem iconLeft={<RiVipCrownLine size={18} />}>
                             Nâng cấp VIP
-                        </DropdowmItem>
-                        <DropdowmItem iconLeft={<RiVipLine size={18} />}>
+                        </DropdownItem>
+                        <DropdownItem iconLeft={<RiVipLine size={18} />}>
                             Mua code VIP
-                        </DropdowmItem>
+                        </DropdownItem>
                         <Horizontal />
-                        <DropdowmItem iconLeft={<FiLogOut size={20} />}>
+                        <DropdownItem iconLeft={<FiLogOut size={20} />}>
                             Đăng xuất
-                        </DropdowmItem>
+                        </DropdownItem>
                     </DropdownList>
                 )}
             </ActionItem>

@@ -1,10 +1,12 @@
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
+// import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
-import SearchBox from "../../components/SearchBox";
-import { Actions } from "../../components";
+import { useHistoryStack } from "../../hooks";
+import { Actions, SearchBox } from "../../components";
 
 const Container = styled.header`
     width: 100%;
@@ -55,25 +57,34 @@ const Btn = styled.button`
 `;
 
 const Header = ({ showBg }) => {
-    const [{ prev, next }, setDisable] = useState({
-        prev: true,
-        next: true,
-    });
+    const navigate = useNavigate();
+    const [stack, active, setActive] = useHistoryStack();
+
+    const handleGoBack = () => {
+        if (active > 0) {
+            navigate(-1);
+            setActive(active - 1);
+        }
+    };
+    const handleGoForward = () => {
+        if (active < stack.length) {
+            navigate(1);
+            setActive(active + 1);
+        }
+    };
 
     return (
         <Container show={showBg}>
             <Box>
                 <Left>
-                    <Btn disabled={prev}>
-                        {<HiOutlineArrowLeft size={22} className="icon-left" />}
+                    <Btn onClick={handleGoBack} disabled={active === 0}>
+                        {<BsArrowLeft size={22} className="icon-left" />}
                     </Btn>
-                    <Btn disabled={next}>
-                        {
-                            <HiOutlineArrowRight
-                                size={22}
-                                className="icon-right"
-                            />
-                        }
+                    <Btn
+                        onClick={handleGoForward}
+                        disabled={active === stack.length}
+                    >
+                        {<BsArrowRight size={22} className="icon-right" />}
                     </Btn>
 
                     <SearchBox />
