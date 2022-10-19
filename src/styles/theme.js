@@ -23,6 +23,10 @@ class Theme {
             linkTextHover: "#fe63da",
             settingColor: "#d8d8d8",
             borderPrimary: "hsl(0deg 0% 100% / 10%)",
+            darkAlpha10: "rgba(0,0,0,0.1)",
+            darkAlpha50: "rgba(0,0,0,0.5)",
+            darkAlpha70: "rgba(0,0,0,0.7)",
+            darkAlpha80: "rgba(0,0,0,0.8)",
         };
     }
 

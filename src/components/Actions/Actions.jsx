@@ -1,16 +1,19 @@
 import React, { memo, useRef, useState } from "react";
 import styled from "styled-components";
 
+// icon start
 import { RiVipCrown2Line, RiVipLine, RiVipCrownLine } from "react-icons/ri";
 import { FiUpload, FiSettings, FiLogOut } from "react-icons/fi";
 import { BiBlock } from "react-icons/bi";
 import { BsChevronRight, BsPlayCircle } from "react-icons/bs";
 import { MdOutlineHighQuality } from "react-icons/md";
+// icon end
 
 import { ThemeIcon } from "../../assets/icons";
 import ActionItem from "./ActionItem";
 import { DropdownList, DropdownItem } from "../Dropdown";
 import { useOutSide } from "../../hooks";
+import Modal from "../Modal";
 
 const Container = styled.div`
     display: flex;
@@ -40,6 +43,7 @@ const Actions = () => {
     const profileRef = useRef();
     const [isOpenSetting, setIsOpenSetting] = useState(false);
     const [isOpenProfile, setIsOpenProfile] = useState(false);
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
     // handle click outside close menu
     useOutSide(settingRef, (e) => {
@@ -59,7 +63,15 @@ const Actions = () => {
     return (
         <Container>
             {/* Setting choose theme */}
-            <ActionItem tippyContent="Chủ đề" icon={<ThemeIcon size={20} />} />
+            <ActionItem
+                tippyContent="Chủ đề"
+                onClick={() => setIsOpenModal(!isOpenModal)}
+                icon={<ThemeIcon size={20} />}
+            >
+                <Modal isOpen={isOpenModal} close={() => setIsOpenModal(false)}>
+                    <div style={{ color: "white" }}>Hello</div>
+                </Modal>
+            </ActionItem>
             {/* Setting Nap dau */}
             <ActionItem
                 tippyContent="Nâng cấp VIP"
