@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DropdowmItem from "./DropdownItem";
-import { footerData } from "../../constants";
+import { footerDropdownData } from "../../constants";
 
 const MenuContainer = styled.div`
     width: 240px;
@@ -34,7 +34,7 @@ const DropdownList = ({ children, footer = false }) => {
             {footer && (
                 <Footer>
                     <MenuList>
-                        {footerData.map((item, idx) => (
+                        {footerDropdownData.map((item, idx) => (
                             <DropdowmItem key={idx} iconLeft={item.icon}>
                                 {item.text}
                             </DropdowmItem>

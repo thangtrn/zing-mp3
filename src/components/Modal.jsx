@@ -12,13 +12,21 @@ const Overlay = styled.div`
     align-items: center;
     z-index: 9999;
 `;
+const Container = styled.div`
+    max-height: 100%;
+    border-radius: 8px;
+    color: ${({ theme }) => theme.color};
+    background-color: ${({ theme }) => theme.primaryBg};
+`;
 
 const Modal = ({ children, isOpen, close }) => {
     if (!isOpen) return null;
 
     return (
-        <Portal>
-            <Overlay onClick={close}>{children}</Overlay>
+        <Portal isOpen={isOpen}>
+            <Overlay onClick={close}>
+                <Container>{children}</Container>
+            </Overlay>
         </Portal>
     );
 };

@@ -9,10 +9,20 @@ const GlobalStyles = createGlobalStyle`
     body {
         width: 100%;
         font-family: 'Inter', sans-serif;
+        line-height: 1.5;
     }
     *::-webkit-scrollbar {
-        appearance: none;
+        width: 6px;
     }
+    *::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        box-shadow: inset 0 0 6px rgb(0 0 0 / 50%);
+    }
+    *::-webkit-scrollbar-track {
+        box-shadow: inset #fff;
+        border-radius: 4px;
+    }
+    
 
     button {
         cursor: pointer;

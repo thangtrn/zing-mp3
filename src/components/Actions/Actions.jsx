@@ -14,6 +14,7 @@ import ActionItem from "./ActionItem";
 import { DropdownList, DropdownItem } from "../Dropdown";
 import { useOutSide } from "../../hooks";
 import Modal from "../Modal";
+import { ThemeModal } from "../Theme";
 
 const Container = styled.div`
     display: flex;
@@ -69,7 +70,7 @@ const Actions = () => {
                 icon={<ThemeIcon size={20} />}
             >
                 <Modal isOpen={isOpenModal} close={() => setIsOpenModal(false)}>
-                    <div style={{ color: "white" }}>Hello</div>
+                    <ThemeModal close={() => setIsOpenModal(false)} />
                 </Modal>
             </ActionItem>
             {/* Setting Nap dau */}

@@ -27,6 +27,7 @@ class Theme {
             darkAlpha50: "rgba(0,0,0,0.5)",
             darkAlpha70: "rgba(0,0,0,0.7)",
             darkAlpha80: "rgba(0,0,0,0.8)",
+            purplePrimary: "#ed2b91",
         };
     }
 

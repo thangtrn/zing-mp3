@@ -30,6 +30,10 @@ const View = styled.main`
     margin-bottom: 0px;
     padding: 0 ${({ theme }) => theme.paddingSection};
     margin: 0 auto;
+    &::-webkit-scrollbar {
+        display: none;
+        appearance: none;
+    }
 `;
 
 const CustomScrollBar = ({ onScroll, children }) => {

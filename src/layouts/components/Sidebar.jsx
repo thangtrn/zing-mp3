@@ -14,6 +14,10 @@ const BrandContainer = styled.div`
     display: flex;
     align-items: center;
     padding: 0 25px 0 28px;
+    a {
+        display: inline-block;
+        line-height: 0;
+    }
 `;
 
 const Brand = styled.div`
@@ -24,6 +28,8 @@ const Brand = styled.div`
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
+    line-height: 0;
+
     &:hover {
         filter: brightness(0.9);
     }

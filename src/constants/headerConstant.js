@@ -31,7 +31,7 @@ export const suggestForYou = [
     },
 ];
 
-export const footerData = [
+export const footerDropdownData = [
     {
         icon: <AiOutlineInfoCircle size={20} />,
         text: "Giới thiệu",
@@ -51,5 +51,137 @@ export const footerData = [
     {
         icon: <IoShieldCheckmarkOutline size={18} />,
         text: "Chính sách bảo mật",
+    },
+];
+
+export const themesData = [
+    {
+        name: "Dynamic",
+        topics: [
+            {
+                title: "London",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-thumb.png",
+            },
+            {
+                title: "Sáng tối",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-light-dark-1.jpg",
+            },
+            {
+                title: "Xanh da trời",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-blue.jpg",
+            },
+            {
+                title: "Hồng",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-pink.jpg",
+            },
+            {
+                title: "Nâu",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-brown.jpg",
+            },
+        ],
+    },
+    {
+        name: "Chủ đề",
+        topics: [
+            {
+                title: "XONE",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/xone-thumbn.jpg",
+            },
+            {
+                title: "Zing music awards",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/zma.jpg",
+            },
+            {
+                title: "Tháp eiffel",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/eiffel.jpg",
+            },
+        ],
+    },
+    {
+        name: "Nghệ sĩ",
+        topics: [
+            {
+                title: "Jack",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jack.jpg",
+            },
+            {
+                title: "IU",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/iu.jpg",
+            },
+            {
+                title: "Ji Chang Wook",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/ji-chang-wook.jpg",
+            },
+            {
+                title: "Lisa",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/lisa.jpg",
+            },
+            {
+                title: "Jisoo",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jennie.jpg",
+            },
+            {
+                title: "Rosé",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/rose.jpg",
+            },
+        ],
+    },
+    {
+        name: "Màu tối",
+        topics: [
+            {
+                title: "Tối",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dark.jpg",
+            },
+            {
+                title: "Tím",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/purple.jpg",
+            },
+            {
+                title: "Xanh đậm",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/blue.jpg",
+            },
+            {
+                title: "Xanh biển",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/blue-light.jpg",
+            },
+            {
+                title: "Xanh lá",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/green.jpg",
+            },
+            {
+                title: "Nâu",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/brown.jpg",
+            },
+            {
+                title: "Hồng",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/pink.jpg",
+            },
+            {
+                title: "Đỏ",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/red.jpg",
+            },
+        ],
+    },
+    {
+        name: "Màu sáng",
+        topics: [
+            {
+                title: "Sáng",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/light.jpg",
+            },
+            {
+                title: "Xám",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/gray.jpg",
+            },
+            {
+                title: "Xanh nhạt",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/green-light.jpg",
+            },
+            {
+                title: "Hồng cánh sen",
+                url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/pink-light.jpg",
+            },
+        ],
     },
 ];
