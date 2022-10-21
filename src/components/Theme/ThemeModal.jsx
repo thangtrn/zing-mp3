@@ -71,7 +71,11 @@ const ThemeModal = ({ close }) => {
                 {themesData.map((theme, idx) => (
                     <Topic key={idx} title={theme.name}>
                         {theme.topics.map((topic) => (
-                            <TopicItem title={topic.title} src={topic.url} />
+                            <TopicItem
+                                title={topic.title}
+                                src={topic.url}
+                                active={topic.title === "Zing Music Awards"}
+                            />
                         ))}
                     </Topic>
                 ))}

@@ -63,11 +63,11 @@ export const themesData = [
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-thumb.png",
             },
             {
-                title: "Sáng tối",
+                title: "Sáng Tối",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-light-dark-1.jpg",
             },
             {
-                title: "Xanh da trời",
+                title: "Xanh Da Trời",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-blue.jpg",
             },
             {
@@ -88,17 +88,17 @@ export const themesData = [
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/xone-thumbn.jpg",
             },
             {
-                title: "Zing music awards",
+                title: "Zing Music Awards",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/zma.jpg",
             },
             {
-                title: "Tháp eiffel",
+                title: "Tháp Eiffel",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/eiffel.jpg",
             },
         ],
     },
     {
-        name: "Nghệ sĩ",
+        name: "Nghệ Sĩ",
         topics: [
             {
                 title: "Jack",
@@ -127,7 +127,7 @@ export const themesData = [
         ],
     },
     {
-        name: "Màu tối",
+        name: "Màu Tối",
         topics: [
             {
                 title: "Tối",
@@ -138,15 +138,15 @@ export const themesData = [
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/purple.jpg",
             },
             {
-                title: "Xanh đậm",
+                title: "Xanh Đậm",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/blue.jpg",
             },
             {
-                title: "Xanh biển",
+                title: "Xanh Biển",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/blue-light.jpg",
             },
             {
-                title: "Xanh lá",
+                title: "Xanh Lá",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/green.jpg",
             },
             {
@@ -164,7 +164,7 @@ export const themesData = [
         ],
     },
     {
-        name: "Màu sáng",
+        name: "Màu Sáng",
         topics: [
             {
                 title: "Sáng",
@@ -175,11 +175,11 @@ export const themesData = [
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/gray.jpg",
             },
             {
-                title: "Xanh nhạt",
+                title: "Xanh Nhạt",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/green-light.jpg",
             },
             {
-                title: "Hồng cánh sen",
+                title: "Hồng Cánh Sen",
                 url: "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/pink-light.jpg",
             },
         ],
