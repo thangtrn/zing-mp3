@@ -15,6 +15,7 @@ import { DropdownList, DropdownItem } from "../Dropdown";
 import { useOutSide } from "../../hooks";
 import Modal from "../Modal";
 import { ThemeModal } from "../Theme";
+import defaultAvatar from "../../assets/images/default-avatar.png";
 
 const Container = styled.div`
     display: flex;
@@ -40,8 +41,9 @@ const Image = styled.img`
 `;
 
 const Actions = () => {
-    const settingRef = useRef();
-    const profileRef = useRef();
+    const settingRef = useRef(null);
+    const profileRef = useRef(null);
+    const [user] = useState(true);
     const [isOpenSetting, setIsOpenSetting] = useState(false);
     const [isOpenProfile, setIsOpenProfile] = useState(false);
     const [isOpenModal, setIsOpenModal] = useState(false);
@@ -109,28 +111,35 @@ const Actions = () => {
                 )}
             </ActionItem>
             {/* Avatar section */}
-            <ActionItem
-                ref={profileRef}
-                onClick={() => setIsOpenProfile(!isOpenProfile)}
-                icon={
-                    <Image src="https://s120-ava-talk-zmp3.zmdcdn.me/c/7/e/a/2/120/b90e2b957b2f78662e163c0e45b4c853.jpg" />
-                }
-            >
-                {isOpenProfile && (
-                    <DropdownList>
-                        <DropdownItem iconLeft={<RiVipCrownLine size={18} />}>
-                            Nâng cấp VIP
-                        </DropdownItem>
-                        <DropdownItem iconLeft={<RiVipLine size={18} />}>
-                            Mua code VIP
-                        </DropdownItem>
-                        <Horizontal />
-                        <DropdownItem iconLeft={<FiLogOut size={20} />}>
-                            Đăng xuất
-                        </DropdownItem>
-                    </DropdownList>
-                )}
-            </ActionItem>
+
+            {user ? (
+                <ActionItem
+                    ref={profileRef}
+                    onClick={() => setIsOpenProfile(!isOpenProfile)}
+                    icon={
+                        <Image src="https://s120-ava-talk-zmp3.zmdcdn.me/c/7/e/a/2/120/b90e2b957b2f78662e163c0e45b4c853.jpg" />
+                    }
+                >
+                    {isOpenProfile && (
+                        <DropdownList>
+                            <DropdownItem
+                                iconLeft={<RiVipCrownLine size={18} />}
+                            >
+                                Nâng cấp VIP
+                            </DropdownItem>
+                            <DropdownItem iconLeft={<RiVipLine size={18} />}>
+                                Mua code VIP
+                            </DropdownItem>
+                            <Horizontal />
+                            <DropdownItem iconLeft={<FiLogOut size={20} />}>
+                                Đăng xuất
+                            </DropdownItem>
+                        </DropdownList>
+                    )}
+                </ActionItem>
+            ) : (
+                <ActionItem icon={<Image src={defaultAvatar} />}></ActionItem>
+            )}
         </Container>
     );
 };
