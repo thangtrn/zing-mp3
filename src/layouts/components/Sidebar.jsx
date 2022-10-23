@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Navbar } from "../../components/Navbar";
+import { Horizontal } from "../../styles";
 
 const Container = styled.div`
     height: ${({ theme }) => `calc(100% - ${theme.playingBarHeight})`};
@@ -43,7 +45,10 @@ function Sidebar() {
                     <Brand />
                 </Link>
             </BrandContainer>
-            <div></div>
+
+            {/* Navbar section */}
+            <Navbar />
+            <Horizontal style={{ width: "80%", margin: "0 auto" }} />
         </Container>
     );
 }

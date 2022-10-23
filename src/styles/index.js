@@ -1,3 +1,3 @@
 export { default as GlobalStyle } from "./GlobalStyle";
 export { default as Theme } from "./theme";
-export * from "./Layout";
+export * from "./commonStyle";

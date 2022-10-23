@@ -16,6 +16,7 @@ import { useOutSide } from "../../hooks";
 import Modal from "../Modal";
 import { ThemeModal } from "../Theme";
 import defaultAvatar from "../../assets/images/default-avatar.png";
+import { Horizontal } from "../../styles";
 
 const Container = styled.div`
     display: flex;
@@ -24,13 +25,6 @@ const Container = styled.div`
     .action-item:not(:last-child) {
         margin-right: 12px;
     }
-`;
-
-const Horizontal = styled.div`
-    width: 100%;
-    height: 1px;
-    background-color: ${({ theme }) => theme.borderPrimary};
-    margin: 10px 0;
 `;
 
 const Image = styled.img`

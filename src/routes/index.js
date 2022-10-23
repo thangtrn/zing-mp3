@@ -1,17 +1,20 @@
 import { Home, ZingChart, MyMusic } from "../pages";
 import { Navigate } from "react-router-dom";
+import routesPath from "./routesPath";
+
+const { home, myMusic, zingChart } = routesPath;
 
 const routes = [
     {
-        path: "/",
+        path: home,
         element: <Home />,
     },
     {
-        path: "/zing-chart",
+        path: zingChart,
         element: <ZingChart />,
     },
     {
-        path: "/mymusic",
+        path: myMusic,
         element: <MyMusic />,
     },
     {

@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         border: none;
     }
-    ol, ul {
+    ol, ul, li {
         list-style: none;
     }
     a[href] {
