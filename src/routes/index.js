@@ -17,10 +17,10 @@ const routes = [
         path: myMusic,
         element: <MyMusic />,
     },
-    {
-        path: "*",
-        element: <Navigate to="/" />,
-    },
+    // {
+    //     path: "*",
+    //     element: <Navigate to="/" />,
+    // },
 ];
 
 export default routes;

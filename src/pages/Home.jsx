@@ -6,6 +6,7 @@ const Container = styled.div`
     height: 6945px;
     margin-top: ${({ theme }) => theme.headerHeight};
     padding-top: 300px;
+    padding: 0 ${({ theme }) => theme.paddingSection};
 `;
 
 const Home = () => {

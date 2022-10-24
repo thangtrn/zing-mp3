@@ -6,6 +6,7 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 
 const Li = styled.li`
     color: ${({ theme }) => theme.textPlaceholder};
+    line-height: normal;
     &:hover {
         color: ${({ theme }) => theme.color};
     }
@@ -53,6 +54,11 @@ const IconPlayWrapper = styled(IconWrapper)`
     right: 17px;
     transform: translateY(-50%);
 `;
+const Text = styled.span`
+    display: flex;
+    align-items: center;
+    line-height: normal;
+`;
 
 const NavItem = ({ icon, children, to = "/" }) => {
     const { pathname } = useLocation();
@@ -61,7 +67,7 @@ const NavItem = ({ icon, children, to = "/" }) => {
         <Li className={pathname === to ? "active" : ""}>
             <LiLink to={to} tabIndex={-1}>
                 <IconWrapper>{icon}</IconWrapper>
-                {children}
+                <Text>{children}</Text>
                 <IconPlayWrapper className="icon-play-hover">
                     <IoPlayCircleOutline size={24} />
                 </IconPlayWrapper>

@@ -45,6 +45,9 @@ const GlobalStyles = createGlobalStyle`
         font-size: 11px;
         line-height: 1.3;
     }
+    .mark {
+        -webkit-mask-image: linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.8) 10%,#fff 25%,#fff);
+    }
 `;
 
 export default GlobalStyles;

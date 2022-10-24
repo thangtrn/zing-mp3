@@ -28,7 +28,6 @@ const View = styled.main`
     overflow: hidden scroll;
     margin-right: -6px;
     margin-bottom: 0px;
-    padding: 0 ${({ theme }) => theme.paddingSection};
     margin: 0 auto;
     &::-webkit-scrollbar {
         display: none;
@@ -36,7 +35,7 @@ const View = styled.main`
     }
 `;
 
-const CustomScrollBar = ({ onScroll, children }) => {
+const CustomScrollBar = ({ onScroll, viewClass, children }) => {
     return (
         <Scrollbars
             onScroll={onScroll}
@@ -48,7 +47,6 @@ const CustomScrollBar = ({ onScroll, children }) => {
                 overflow: "hidden",
                 width: "100%",
                 height: "100%",
-                // minHeight: "calc(100vh - 90px)",
             }}
             renderTrackVertical={({ style, ...props }) => (
                 <TrackVertical {...props} />
@@ -56,7 +54,9 @@ const CustomScrollBar = ({ onScroll, children }) => {
             renderThumbVertical={({ style, ...props }) => (
                 <ThumbVertical {...props} />
             )}
-            renderView={(...props) => <View {...props}></View>}
+            renderView={(...props) => (
+                <View {...props} className={viewClass}></View>
+            )}
         >
             {children}
         </Scrollbars>

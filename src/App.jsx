@@ -12,7 +12,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 let theme = new Theme();
 
 function App() {
-    const [themeValue, setThemeValue] = useState("zingMusicAwards");
+    const [themeValue] = useState("zingMusicAwards");
 
     return (
         <ThemeProvider theme={theme[themeValue]()}>

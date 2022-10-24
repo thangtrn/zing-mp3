@@ -10,7 +10,7 @@ const ActionItemStyled = styled.div`
     width: 40px;
     height: 40px;
     position: relative;
-    flex: 1;
+    /* flex: 1; */
     cursor: pointer;
     background-color: ${({ theme }) => theme.alphaBg};
     border-radius: 50%;
@@ -49,6 +49,7 @@ const ActionItem = (
         href = null,
         tippyContent = null,
         icon,
+        style,
         children = null,
     },
     ref
@@ -78,7 +79,7 @@ const ActionItem = (
     }
 
     return (
-        <ActionItemStyled className="action-item" ref={ref}>
+        <ActionItemStyled className="action-item" style={style} ref={ref}>
             <TippyComp {...tippyOpts}>
                 <Comp {...props}>{icon}</Comp>
             </TippyComp>

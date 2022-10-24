@@ -20,6 +20,7 @@ import { Horizontal } from "../../styles";
 
 const Container = styled.div`
     display: flex;
+    align-items: center;
     margin-left: 10px;
     color: ${({ theme }) => theme.textPlaceholder};
     .action-item:not(:last-child) {
@@ -108,6 +109,7 @@ const Actions = () => {
 
             {user ? (
                 <ActionItem
+                    style={{ width: "38px", height: "38px" }} // avatar width height 38px
                     ref={profileRef}
                     onClick={() => setIsOpenProfile(!isOpenProfile)}
                     icon={
