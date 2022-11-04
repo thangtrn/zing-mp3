@@ -17,7 +17,7 @@ import {
 import { VscPieChart } from "react-icons/vsc";
 import { BiCategoryAlt } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
-import { HiOutlineStar, HiOutlinePencil, HiOutlinePlus } from "react-icons/hi";
+import { HiOutlineStar, HiOutlinePencil } from "react-icons/hi";
 
 import { CustomScrollBar } from "../../components";
 import { Navbar, NavItem, SubNavItem } from "../../components/Navbar";
