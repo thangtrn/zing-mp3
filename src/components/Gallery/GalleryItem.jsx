@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Card = styled.div`
     position: absolute;
+    top: 0;
     width: 33.33%;
     padding: 0 15px;
     user-select: none;
@@ -13,6 +14,7 @@ const Card = styled.div`
 `;
 
 const Img = styled.img`
+    display: block;
     border-radius: 8px;
     width: 100%;
     height: 100%;

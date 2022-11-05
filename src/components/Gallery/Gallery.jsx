@@ -1,11 +1,9 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect, memo } from "react";
 import styled from "styled-components";
 import GalleryItem from "./GalleryItem";
 
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { useState } from "react";
-import { useEffect } from "react";
-
+import { useRef } from "react";
 const Container = styled.div`
     padding: 32px 0 20px;
 `;
@@ -14,7 +12,6 @@ const GalleryContainer = styled.div`
     display: flex;
     justify-content: center;
     margin: 0 -15px;
-    height: 191.602px;
     position: relative;
     &:hover .gallery-arrow {
         opacity: 1;
@@ -51,20 +48,28 @@ const Button = styled.div`
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    transform: translateY(-50%);
     top: 50%;
+    transform: translateY(-50%);
     color: ${({ theme }) => theme.color};
     background-color: hsla(0, 0%, 100%, 0.15);
     box-shadow: 0 2px 4px 0 rgb(226 102 102 / 15%);
-    z-index: 10;
+    z-index: 20;
     opacity: 0;
     cursor: pointer;
     &:hover {
         filter: brightness(0.9);
     }
+    &.gallery-left {
+        left: 25px;
+    }
+    &.gallery-right {
+        right: 25px;
+    }
 `;
 
 const Gallery = ({ galleryData }) => {
+    const cardRef = useRef();
+    const [height, setHeight] = useState("13.33vw");
     const [clss, setClss] = useState([
         "gallery-selected",
         "gallery-next",
@@ -94,12 +99,30 @@ const Gallery = ({ galleryData }) => {
         };
     }, [sort]);
 
+    // loaded height of gallery
+    useEffect(() => {
+        cardRef.current = document.querySelector(".gallery-selected");
+        setHeight(cardRef.current.getBoundingClientRect().height);
+    }, []);
+
+    // listen Event resize => update height gallery
+    useEffect(() => {
+        if (!cardRef.current) return;
+        const handleResize = () => {
+            setHeight(cardRef.current.getBoundingClientRect().height);
+        };
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <Container>
-            <GalleryContainer>
+            <GalleryContainer style={{ height: height }}>
                 <Button
-                    style={{ left: "25px" }}
-                    className="gallery-arrow"
+                    className="gallery-arrow gallery-left"
                     onClick={() => sort(-1)}
                 >
                     <BsChevronLeft size={28} />
@@ -112,8 +135,7 @@ const Gallery = ({ galleryData }) => {
                     />
                 ))}
                 <Button
-                    style={{ right: "25px" }}
-                    className="gallery-arrow"
+                    className="gallery-arrow gallery-right"
                     onClick={() => sort(1)}
                 >
                     <BsChevronRight size={28} />
@@ -123,4 +145,4 @@ const Gallery = ({ galleryData }) => {
     );
 };
 
-export default Gallery;
+export default memo(Gallery);
