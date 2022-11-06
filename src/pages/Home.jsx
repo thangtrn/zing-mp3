@@ -1,6 +1,4 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { zingApi } from "../axios";
 import { Gallery } from "../components";
@@ -26,14 +24,10 @@ const Home = () => {
         };
         fetchHome();
     }, []);
-
-    if (!data) {
-        return <Container>Loading</Container>;
-    }
-
+    if (!data) return <Container>Loading</Container>;
     return (
         <Container>
-            <Gallery galleryData={data.items[0].items} />
+            <Gallery galleryData={data?.items[0].items} />
         </Container>
     );
 };

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import GalleryItem from "./GalleryItem";
 
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { useRef } from "react";
 const Container = styled.div`
     padding: 32px 0 20px;
 `;
@@ -68,8 +67,7 @@ const Button = styled.div`
 `;
 
 const Gallery = ({ galleryData }) => {
-    const cardRef = useRef();
-    const [height, setHeight] = useState("13.33vw");
+    const [height, setHeight] = useState(0);
     const [clss, setClss] = useState([
         "gallery-selected",
         "gallery-next",
@@ -99,17 +97,12 @@ const Gallery = ({ galleryData }) => {
         };
     }, [sort]);
 
-    // loaded height of gallery
-    useEffect(() => {
-        cardRef.current = document.querySelector(".gallery-selected");
-        setHeight(cardRef.current.getBoundingClientRect().height);
-    }, []);
-
     // listen Event resize => update height gallery
     useEffect(() => {
-        if (!cardRef.current) return;
+        const cardEl = document.querySelector(".gallery-selected img");
+        if (!cardEl) return;
         const handleResize = () => {
-            setHeight(cardRef.current.getBoundingClientRect().height);
+            setHeight(cardEl.getBoundingClientRect().height);
         };
         window.addEventListener("resize", handleResize);
 
@@ -129,6 +122,7 @@ const Gallery = ({ galleryData }) => {
                 </Button>
                 {galleryData.map((item, idx) => (
                     <GalleryItem
+                        setHeight={setHeight}
                         key={idx}
                         src={item.banner}
                         className={clss[idx]}

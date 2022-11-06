@@ -21,10 +21,17 @@ const Img = styled.img`
     object-fit: cover;
 `;
 
-const GalleryItem = ({ className, src }) => {
+const GalleryItem = ({ className, src, setHeight }) => {
+    // check className and set heiht for parent container
+    const autoHeight = (e) => {
+        if (className !== "gallery-selected") return;
+        setHeight(e.target.getBoundingClientRect().height);
+        console.log(e.target.getBoundingClientRect());
+    };
+
     return (
         <Card className={className}>
-            <Img src={src} alt="banner"></Img>
+            <Img src={src} alt="banner" onLoad={autoHeight} />
         </Card>
     );
 };
